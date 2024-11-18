@@ -68,6 +68,61 @@ INSERT INTO `asset_management_company` VALUES ('1','케이비자산운용\r'),('
 UNLOCK TABLES;
 
 --
+-- Table structure for table `customer_profiles`
+--
+
+DROP TABLE IF EXISTS `customer_profiles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `customer_profiles` (
+  `profile_id` int NOT NULL AUTO_INCREMENT,
+  `customer_id` int NOT NULL,
+  `risk_tolerance` enum('low','medium','high') NOT NULL,
+  PRIMARY KEY (`profile_id`),
+  KEY `customer_id` (`customer_id`),
+  CONSTRAINT `customer_profiles_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customer_profiles`
+--
+
+LOCK TABLES `customer_profiles` WRITE;
+/*!40000 ALTER TABLE `customer_profiles` DISABLE KEYS */;
+INSERT INTO `customer_profiles` VALUES (1,1,'low'),(2,2,'medium');
+/*!40000 ALTER TABLE `customer_profiles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customers`
+--
+
+DROP TABLE IF EXISTS `customers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `customers` (
+  `customer_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`customer_id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customers`
+--
+
+LOCK TABLES `customers` WRITE;
+/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` VALUES (1,'홍길동','hong@example.com','010-1234-5678','2024-11-12 12:21:16'),(2,'김철수','kim@example.com','010-8765-4321','2024-11-12 12:21:16');
+/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `fund`
 --
 
@@ -142,4 +197,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-11 23:58:42
+-- Dump completed on 2024-11-12 21:25:12

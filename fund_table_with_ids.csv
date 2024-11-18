@@ -1,4 +1,4 @@
-fund_id,운용사,펀드명,펀드유형,투자지역,1년 수익률,표준편차,최대가격,최소가격,펀드점수,위험도,판매량,asset_management_company_id
+fund_id,asset_management_company,name,fund_type,investment_area,one_year_yield,standard_deviation,max_price,min_price,fund_score,risk_level,sales_volume,asset_management_company_id
 1,케이비자산운용,KB RISE 금융채액티브 증권 상장지수 투자신탁(채권),채권형,국내,0.0688,0.0122,102665.1,99716.8,82.22596391497777,6,39200,1
 2,미래에셋자산운용,미래에셋TIGERCD금리투자KIS특별자산상장지수투자신탁(CD-파생형)(합성),특별자산파생,국내,0.0355,0.0005,55151.29,53224.63,82.10945699794826,5,5958000,2
 3,키움투자자산운용,키움 KOSEF 단기자금 증권상장지수투자신탁[채권],채권형,국내,0.0376,0.0013,104968.9,101278.01,82.020939419281,6,96500,3
